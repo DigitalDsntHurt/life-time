@@ -1,34 +1,27 @@
+<p><%= @bday %></p>
+	<p><%= @dday %></p>
+	<p><%= @years_of_life %></p>
+
+<%= link_to "Reset a life of (#{Day.all.count}) days?!", days_reset_path, method: :delete, confirm: 'Are you crazy?' %>
 
 
 
+<% bday = Date.new(1990,4,8) %>
+<% dday = Date.new(1990+102,10,28) %>
 <table class="life-table">
-	<!-- year rows -->
-	<% Day.unique_years.each do |year| %> 
+	<% Day.life_weeks_new(bday,dday).each{ |week_group| %>
 		<tr>
-			<!-- week cells -->
-			<% Day.unique_weeks_within_year_count(year).times do %>
-				<td title="This is Title">
-					<span class="week-tooltip">hi tooltip</span>
-				</td>
-			<% end -%>
-			<!-- end week cells -->
+			<% week_group.each{|week|%>
+				<% if week.nil? %>
+					<td></td>
+				<% else %>
+					<% if Date.today >= week[0] and Date.today <= week[1] %>
+						<td id="this-week"><%=  %></td>
+					<% else %>
+						<td><%=  %></td>
+					<% end -%>	
+				<% end %>
+			<% } %>
 		</tr>
-	<% end %>
-	<!-- end year rows -->
-</table>
-
-<table class="life-table">
-	<!-- year rows -->
-	<% Day.unique_years.each do |year| %> 
-		<tr>
-			<!-- week cells -->
-			<% Day.unique_weeks_within_year_count(year).times do %>
-				<td title="This is Title">
-					<span class="week-tooltip">hi tooltip</span>
-				</td>
-			<% end -%>
-			<!-- end week cells -->
-		</tr>
-	<% end %>
-	<!-- end year rows -->
+	<% } %>
 </table>

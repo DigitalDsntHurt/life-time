@@ -1,21 +1,22 @@
 class Day < ApplicationRecord
 
-  
-
-
-
   validates_presence_of :date, :year, :month, :week, :week_id
   
-
   before_validation :set_year, :set_month, :set_week, :set_week_id
 
+
+  ## CREATION ##
   def self.create_days_from_range(birthdate,deathdate)
     @dates = []
-    (birthdate..deathdate).each{|date|
+    (birthdate.to_date..deathdate.to_date).each{|date|
       @dates << Day.new(date: date)
     }
     Day.import @dates
   end
+
+  ## DATA & QUERIES ##
+
+
 
   def self.year_groups
     Day.all.group_by{ |day| day.year }
@@ -43,6 +44,30 @@ class Day < ApplicationRecord
 
   def self.unique_weeks_within_year_count(year)
     Day.where(year: year).pluck(:week).uniq.count
+  end
+
+  def self.life_weeks_old(bday,dday)
+    # accepts date objects
+    birth_year = bday.to_date.year
+    dday.to_date
+
+    birth_year_week_grouped_days = Day.where(year: birth_year).group_by{|day| day.week_id }
+    return [birth_year, birth_year_week_grouped_days]
+  end
+
+  def self.life_weeks_new(bday,dday)
+    # accepts date objects
+    wart = bday
+    wend = bday + 6
+    all_weeks = []
+    until wart > dday
+      @week = [wart, wend]
+      all_weeks << @week
+      wart += 7
+      wend += 7
+    end
+    
+    all_weeks.in_groups_of(52)
   end
 
 

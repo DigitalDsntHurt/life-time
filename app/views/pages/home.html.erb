@@ -1,62 +1,7 @@
-<h1>Your Life</h1>
+<h1 class="title">Your Life</h1>
 
 <% if @bday %>
-	<p><%= @bday %></p>
-	<p><%= @dday %></p>
-	<p><%= @years_of_life %></p>
-
-	<%= render partial: 'pages/life_table' %>
-	
-
-	<%= @week_groups_within_year_groups %>
-		<table class="life-table">
-			<% 90.times do %>
-				<tr>
-					<% 52.times do %>
-						<td title="This is Title">
-							<span class="week-tooltip">hi tooltip</span>
-						</td>
-					<% end -%>
-				</tr>
-			<% end %>
-		</table>
-
-
-<br><br><br><br>
-<hr>
-<br><br><br><br>
-
-	<%= @week_groups_within_year_groups %>
-		<table class="life-table">
-			<% 90.times do %>
-				<tr>
-					<% 52.times do %>
-						<td title="This is Title">
-							<span class="week-tooltip">hi tooltip</span>
-						</td>
-					<% end -%>
-				</tr>
-			<% end %>
-		</table>
-
-
-<br><br><br><br>
-<hr>
-<br><br><br><br>
-	
-	<table class="life-table">
-		<% @years_of_life.times do %>
-			<tr>
-				<% 52.times do %>
-					<td title="This is Title">
-						<span class="week-tooltip">hi tooltip</span>
-					</td>
-				<% end -%>
-			</tr>
-		<% end %>
-		
-	</table>
-
+	<%= render partial: @partial %>
 <% else %>
-	<%= render partial: 'days/birth_death_range_form' %>
+	<%= render partial: @partial %>
 <% end %>
