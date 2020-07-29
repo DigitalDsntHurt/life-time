@@ -2,14 +2,20 @@
 # *** #
 # *** #
 
-initial_seed = true
-reset_all_data = false
+# WHICH SEED ACTION TO RUN #
+
+initial_seed = false
+reset_all_data = true
 delete_all = false
 
+# HOW MANY YEARS TO SEED IN THE DB #
 
+start_year = 1980
+num_of_years = 140
 
-start_year = 1900
-num_of_years = 201
+# *** #
+# *** #
+# *** #
 
 custom_bday = Date.new(1990,4,8)
 custom_age = 102
@@ -19,9 +25,6 @@ custom_dday = Date.new(yr,10,28)
 start_date = Date.new(start_year,1,1)
 end_date = start_date + (num_of_years+1).years
 
-# *** #
-# *** #
-# *** #
 
 if initial_seed == true
   ## INITIAL SEED ##
