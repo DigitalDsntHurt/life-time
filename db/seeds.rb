@@ -1,3 +1,61 @@
+# ## INITIAL SEED ##
+# puts "* ### * ### * ### * ### *"
+# puts "#{Day.all.count}"
+# start_year = 1900 
+# end_year = 1905
+
+# Day.create_days_from_range(Date.new(start_year,1,1),Date.new(end_year,1,1))
+# puts "#{Day.all.count}"
+# puts "* ### * ### * ### * ### *"
+
+
+## grouping for table ##
+
+# Day.unique_years.sort.each{|year|
+#   p "**#{year}**<tr>"
+#   year_days = Day.where(year: year)
+#   p "#{year_days.count} days in #{year}"
+#   week_groups = year_days.group_by{ |date| date.week }
+#   p "#{week_groups.count} week groups"
+#   puts ""
+# }
+
+# puts Day.years.count
+# puts Day.years.uniq.count
+
+
+
+bday = Date.new(1900,4,8)
+dday = Date.new(1905,4,8)
+
+p Day.life_weeks_new(bday,dday)
+
+# starter = Day.life_weeks(bday,dday)
+# p "Day.life_weeks(bday,dday) returns an #{starter.class} with #{starter.count} elements"
+# year = starter[0]
+# p "The first element is a year: #{year}"
+# weeks_hsh = starter[1]
+# p "The second elelemnt is an #{weeks_hsh.class} with #{weeks_hsh.count} elements"
+# p "in which the keys are #{weeks_hsh.keys.sample.class}s and the values are #{weeks_hsh.values.sample.class}s"
+# p "\n Now, let's work with the keys..."
+# p weeks_hsh.keys.sort
+# # p "#{weeks.count} weeks in #{year}"
+# # p weeks.values.sample.sample.class
+# # puts ""
+
+# # [
+# #   [year, 
+# #     [] 
+# #   ],
+# #   [1900, 
+# #     []
+# #   ]
+# # ]
+
+
+
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -7,18 +65,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-@current_year = 0
-@current_week = 0
+# @current_year = 0
+# @current_week = 0
 
-Day.all.each{|day|
-  if @current_year != day.year
-    # create a new tr
-  else
-  end
-  @current_year += day.year
-  @current_week += day.week
+# Day.all.each{|day|
+#   if @current_year != day.year
+#     # create a new tr
+#   else
+#   end
+#   @current_year += day.year
+#   @current_week += day.week
 
-}
+# }
 
 
 ## GROUPING BY CWEEK ##
@@ -64,4 +122,12 @@ Day.all.each{|day|
 # puts "=== === === ==="
 # p Day.all.count
 # puts "=== === === ==="
+
+
+
+
+
+
+
+
 
