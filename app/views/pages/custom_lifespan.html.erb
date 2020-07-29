@@ -1,0 +1,20 @@
+<h1>Your Life</h1>
+<%= render partial: 'custom_dates/lifespan_form' %>
+
+<table class="life-table">
+  <% Day.life_weeks_new(@bday,@dday).each{ |week_group| %>
+    <tr>
+      <% week_group.each{|week|%>
+        <% if week.nil? %>
+          <td></td>
+        <% else %>
+          <% if Date.today >= week[0] and Date.today <= week[1] %>
+            <td id="this-week"><%=  %></td>
+          <% else %>
+            <td><%=  %></td>
+          <% end -%>  
+        <% end %>
+      <% } %>
+    </tr>
+  <% } %>
+</table>

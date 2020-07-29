@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   
 
 
+  resources :custom_dates
+  
   match '/days/reset', to: 'days#reset', via: :delete
   resources :days
 
+  get 'pages/custom_lifespan' => 'pages#custom_lifespan'
   get 'pages/scratch'
-  post 'pages/home', to: 'pages#set_lifespan', as: 'set_lifespan'
+  post 'pages/custom_lifespan', to: 'pages#set_lifespan', as: 'set_lifespan'
 
   get 'pages/home' => 'pages#home'
   root 'pages#home'

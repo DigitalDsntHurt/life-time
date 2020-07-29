@@ -57,10 +57,10 @@ class Day < ApplicationRecord
 
   def self.life_weeks_new(bday,dday)
     # accepts date objects
-    wart = bday
-    wend = bday + 6
+    wart = bday.to_date
+    wend = bday.to_date + 6
     all_weeks = []
-    until wart > dday
+    until wart > dday.to_date
       @week = [wart, wend]
       all_weeks << @week
       wart += 7
