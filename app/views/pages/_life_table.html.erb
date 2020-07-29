@@ -1,0 +1,34 @@
+
+
+
+<table class="life-table">
+	<!-- year rows -->
+	<% Day.unique_years.each do |year| %> 
+		<tr>
+			<!-- week cells -->
+			<% Day.unique_weeks_within_year_count(year).times do %>
+				<td title="This is Title">
+					<span class="week-tooltip">hi tooltip</span>
+				</td>
+			<% end -%>
+			<!-- end week cells -->
+		</tr>
+	<% end %>
+	<!-- end year rows -->
+</table>
+
+<table class="life-table">
+	<!-- year rows -->
+	<% Day.unique_years.each do |year| %> 
+		<tr>
+			<!-- week cells -->
+			<% Day.unique_weeks_within_year_count(year).times do %>
+				<td title="This is Title">
+					<span class="week-tooltip">hi tooltip</span>
+				</td>
+			<% end -%>
+			<!-- end week cells -->
+		</tr>
+	<% end %>
+	<!-- end year rows -->
+</table>
