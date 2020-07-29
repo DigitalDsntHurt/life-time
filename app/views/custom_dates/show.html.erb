@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bday:</strong>
+  <%= @custom_date.bday %>
+</p>
+
+<p>
+  <strong>Dday:</strong>
+  <%= @custom_date.dday %>
+</p>
+
+<%= link_to 'Edit', edit_custom_date_path(@custom_date) %> |
+<%= link_to 'Back', custom_dates_path %>

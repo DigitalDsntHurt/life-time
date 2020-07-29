@@ -21,8 +21,15 @@ h1,h2,h3,h4,h5,h6 {
 	text-align: center;
 }
 
+.title{
+	text-align: center;
+}
 
 
+.form-table{
+	margin: auto;
+	text-align: center;
+}
 
 
 .life-table{

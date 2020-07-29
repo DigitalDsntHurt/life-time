@@ -1,26 +1,22 @@
 class PagesController < ApplicationController
   def home
-    if Day.all.count == 0
-      #
-      @partial = 'days/birth_death_range_form'
-    else
-      #
-      @partial = 'pages/life_table'
-    end
+    @bday = Date.new(1990,4,8)
+    @dday = Date.new(1990+102,10,28)
+  end
+
+  def custom_lifespan
+    @custom_date = CustomDate.all.first
+    @bday = @custom_date.bday
+    @dday = @custom_date.dday
   end
 
   def set_lifespan
-    unless params[:commit].nil?
-      @bday = params[:birthday]
-      @dday = params[:deathday]
-      @years_of_life = @dday.to_date.year - @bday.to_date.year
-
-      Day.create_days_from_range(@bday,@dday)
-
-      respond_to do |format|
-        format.html { render :home }
-      end
-    end
+    # unless params[:commit].nil?
+    #   @bday = params[:birthday]
+    #   @dday = params[:deathday]
+    #   @years_of_life = @dday.to_date.year - @bday.to_date.year
+    #   redirect_back fallback_location: pages_custom_lifespan_path
+    # end
   end
 
   def scratch

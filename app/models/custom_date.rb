@@ -1,0 +1,2 @@
+class CustomDate < ApplicationRecord
+end

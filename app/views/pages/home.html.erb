@@ -1,7 +1,4 @@
-<h1 class="title">Your Life</h1>
-
-<% if @bday %>
-	<%= render partial: @partial %>
-<% else %>
-	<%= render partial: @partial %>
-<% end %>
+<h1 class="title">A Life</h1>
+<p class="title"><%= @bday %> - <%= @dday%> </p>
+<p class="title">add an annotation</p>
+<%= render partial: 'pages/life_table', locals: {bday: @bday, dday: @dday} %>

@@ -1,3 +1,16 @@
+# ## RESET DAYS DATA ##
+# start_year = 1900 
+# end_year = 2100
+
+# puts "* ### * ### * ### * ### *"
+# puts "#{Day.all.count} Days currently in db"
+# Day.delete_all
+# puts "#{Day.all.count} Days currently in db"
+# Day.create_days_from_range(Date.new(start_year,1,1),Date.new(end_year,1,1))
+# puts "#{Day.all.count} Days currently in db"
+# puts "* ### * ### * ### * ### *"
+
+
 # ## INITIAL SEED ##
 # puts "* ### * ### * ### * ### *"
 # puts "#{Day.all.count}"
@@ -24,11 +37,12 @@
 # puts Day.years.uniq.count
 
 
+# ## BREAKTHROUGH STUFF HERE ##
+# bday = Date.new(1900,4,8)
+# dday = Date.new(1905,4,8)
 
-bday = Date.new(1900,4,8)
-dday = Date.new(1905,4,8)
-
-p Day.life_weeks_new(bday,dday)
+# p Day.life_weeks_new(bday,dday)
+# ## END BREAKTHROUGH STUFF ##
 
 # starter = Day.life_weeks(bday,dday)
 # p "Day.life_weeks(bday,dday) returns an #{starter.class} with #{starter.count} elements"

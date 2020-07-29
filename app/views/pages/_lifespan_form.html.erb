@@ -1,0 +1,27 @@
+<%= form_with url: set_lifespan_path, local: true, method: :post do %>
+
+<table class="title" align="center">
+  <tr>
+    <td>
+      <div>
+        <%= label_tag "birthday" %>
+        <%= date_field_tag "birthday", @bday %>
+      </div>
+    </td>
+    <td>
+      <div>
+        <%= label_tag "deathday" %>
+        <%= date_field_tag "deathday", @dday %>
+      </div>      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div>
+         <%= submit_tag "Annotate your life!" %>
+      </div>
+    </td>
+  </tr>
+</table>    
+
+ <% end %>

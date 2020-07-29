@@ -1,0 +1,27 @@
+<%= form_with(model: custom_date, local: true) do |form| %>
+  <% if custom_date.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(custom_date.errors.count, "error") %> prohibited this custom_date from being saved:</h2>
+
+      <ul>
+        <% custom_date.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bday %>
+    <%= form.date_select :bday %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dday %>
+    <%= form.date_select :dday %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
