@@ -1,26 +1,77 @@
-# ## RESET DAYS DATA ##
-# start_year = 1900 
-# end_year = 2100
+# *** #
+# *** #
+# *** #
 
-# puts "* ### * ### * ### * ### *"
-# puts "#{Day.all.count} Days currently in db"
-# Day.delete_all
-# puts "#{Day.all.count} Days currently in db"
-# Day.create_days_from_range(Date.new(start_year,1,1),Date.new(end_year,1,1))
-# puts "#{Day.all.count} Days currently in db"
-# puts "* ### * ### * ### * ### *"
+initial_seed = true
+reset_all_data = false
+delete_all = false
 
 
-# ## INITIAL SEED ##
-# puts "* ### * ### * ### * ### *"
-# puts "#{Day.all.count}"
-# start_year = 1900 
-# end_year = 1905
 
-# Day.create_days_from_range(Date.new(start_year,1,1),Date.new(end_year,1,1))
-# puts "#{Day.all.count}"
-# puts "* ### * ### * ### * ### *"
+start_year = 1900
+num_of_years = 201
 
+custom_bday = Date.new(1990,4,8)
+custom_age = 102
+yr = custom_bday.year + custom_age
+custom_dday = Date.new(yr,10,28)
+
+start_date = Date.new(start_year,1,1)
+end_date = start_date + (num_of_years+1).years
+
+# *** #
+# *** #
+# *** #
+
+if initial_seed == true
+  ## INITIAL SEED ##
+  puts "* ### * ### * ### * ### *"
+  puts "#{Day.all.count} days in db"
+  puts "#{CustomDate.all.count} custom dates in db"
+
+  Day.create_days_from_range(start_date,end_date)
+  CustomDate.new(bday: custom_bday, dday: custom_dday ).save
+
+  puts "#{Day.all.count} days in db"
+  puts "#{CustomDate.all.count} custom dates in db"
+  puts "* ### * ### * ### * ### *"
+end
+
+if reset_all_data == true
+  ## RESET ALL DATA ##
+
+  puts "* ### * ### * ### * ### *"
+  puts "#{Day.all.count} days in db"
+  puts "#{CustomDate.all.count} custom dates in db"
+  puts
+  
+  Day.delete_all
+  CustomDate.delete_all
+
+  puts "#{Day.all.count} days in db"
+  puts "#{CustomDate.all.count} custom dates in db"
+  puts 
+
+  Day.create_days_from_range(start_date,end_date)
+  CustomDate.new(bday: custom_bday, dday: custom_dday ).save
+
+  puts "#{Day.all.count} days in db"
+  puts "#{CustomDate.all.count} custom dates in db"
+  puts "* ### * ### * ### * ### *"
+end
+
+
+
+if delete_all == true
+  puts "* ### * ### * ### * ### *"
+  puts "#{Day.all.count} days in db"
+  puts "#{CustomDate.all.count} custom dates in db"
+  Day.delete_all
+  CustomDate.delete_all
+  puts "#{Day.all.count} days in db"
+  puts "#{CustomDate.all.count} custom dates in db"
+  puts "* ### * ### * ### * ### *"
+end
 
 ## grouping for table ##
 
