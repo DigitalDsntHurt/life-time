@@ -5,7 +5,7 @@
 # WHICH SEED ACTION TO RUN #
 
 initial_seed = false
-reset_all_data = true
+reset_all_data = false
 delete_all = false
 
 # HOW MANY YEARS TO SEED IN THE DB #
