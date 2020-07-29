@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home
     @custom_date = CustomDate.all.first
     @bday = @custom_date.bday
-    @dday = @custom_date.dday
+    @dday = @bday + 73.years
   end
 
   def custom_lifespan

@@ -39,8 +39,8 @@ h1,h2,h3,h4,h5,h6 {
 
 .life-table td{
 	border: solid 1px black;
-	margin: 1vh 0.5vw;
-	padding: 1vh 0.5vw;
+	margin: 0.25vh 0.22vw;
+	padding: 0.25vh 0.22vw;
 }
 .life-table td#this-week{
 	background-color: orange;
