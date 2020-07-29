@@ -33,14 +33,17 @@ h1,h2,h3,h4,h5,h6 {
 
 
 .life-table{
-	border: solid 1px black;
+	border: 0.1em solid rgba(0, 0, 0, 0.8);
 	margin: auto;
 }
 
 .life-table td{
-	border: solid 1px black;
-	margin: 0.25vh 0.22vw;
-	padding: 0.25vh 0.22vw;
+	/*border: solid 1px black;*/
+	border: 0.1em solid rgba(0, 0, 0, 0.6);
+	margin: 0.1em 0.1em;
+	padding: 0.14em 0.6em;
+	/*width: 1px;*/
+	/*height: 0.5px;*/
 }
 .life-table td#this-week{
 	background-color: orange;
