@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_204912) do
+ActiveRecord::Schema.define(version: 2020_07_30_172434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "annotations", force: :cascade do |t|
+    t.integer "start_date_id"
+    t.integer "end_date_id"
+    t.text "annotation"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "custom_dates", force: :cascade do |t|
     t.date "bday"

@@ -38,12 +38,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .life-table td{
-	/*border: solid 1px black;*/
 	border: 0.1em solid rgba(0, 0, 0, 0.6);
 	margin: 0.1em 0.1em;
 	padding: 0.14em 0.6em;
-	/*width: 1px;*/
-	/*height: 0.5px;*/
 }
 .life-table td#this-week{
 	background-color: orange;
@@ -58,4 +55,36 @@ h1,h2,h3,h4,h5,h6 {
 
 .week-tooltip:hover{
 	display:block;
+}
+
+
+
+/*annotations index*/
+.annotations-index-table{
+	width: 96vw;
+	margin: auto;
+	border: solid 1px black;
+}
+
+.annotations-index-table td{
+	vertical-align: top;
+}
+.annotations-index-table td.grid{
+	border: solid 1px black;
+	width: 70vw;
+}
+.annotations-index-table td.dash{
+	border: solid 1px black;
+	width: 30vw;
+}
+
+
+.dash-table{
+	width: 100%;
+	margin: auto;
+	/*border: solid 1px black;*/
+}
+
+.dash-table td{
+	/*border: solid 1px black;*/
 }
