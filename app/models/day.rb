@@ -70,6 +70,14 @@ class Day < ApplicationRecord
     all_weeks.in_groups_of(52)
   end
 
+  def self.special_bday
+    Date.new(1990,4,8)
+  end
+
+  def self.special_dday
+    Date.new(2092,10,28)
+  end
+
 
 
   private

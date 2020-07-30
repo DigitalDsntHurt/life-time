@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
 
 
+  resources :annotations
   resources :custom_dates
   
   match '/days/reset', to: 'days#reset', via: :delete

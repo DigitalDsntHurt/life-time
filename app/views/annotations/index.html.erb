@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title">Annotations</h1>
+
+<table class="annotations-index-table">
+  <tr>
+    <td class="grid">
+      <h1 class="title">grid here</h1>
+      <%= render partial: 'pages/life_table', locals: {bday: @bday, dday: @dday} %>
+    </td>
+    <td class="dash">
+      <table class="dash-table">
+        <tr>
+          <td>
+            <h1 class="title">form here</h1>
+            <%= render partial: 'quick_form', locals: {annotation: Annotation.new} %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h1 class="title">bullets here</h1>
+              <ul>
+                <% @annotations.each{ | annotation| %>
+                    <li style="background-color:#<%= annotation.color %>">
+                      <%= annotation.annotation %> (<%= Day.where(id: annotation.start_date_id)[0].date %> : <%= Day.where(id: annotation.end_date_id)[0].date %>)
+                    </li>
+                <% } %>
+              </ul>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Annotation</th>
+      <th>Color</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @annotations.each do |annotation| %>
+      <tr>
+        <td><%= annotation.start_date_id %></td>
+        <td><%= annotation.end_date_id %></td>
+        <td><%= annotation.annotation %></td>
+        <td><%= annotation.color %></td>
+        <td><%= link_to 'Show', annotation %></td>
+        <td><%= link_to 'Edit', edit_annotation_path(annotation) %></td>
+        <td><%= link_to 'Destroy', annotation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Annotation', new_annotation_path %>

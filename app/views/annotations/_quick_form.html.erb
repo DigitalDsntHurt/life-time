@@ -1,0 +1,44 @@
+<%= form_with(model: annotation, local: true) do |form| %>
+  <% if annotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(annotation.errors.count, "error") %> prohibited this annotation from being saved:</h2>
+
+      <ul>
+        <% annotation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table>
+  <tr>
+    <td>
+      <div class="field">
+        <%= form.label :start_date_id %>
+        <%= form.select :start_date_id, Day.all.collect {|d| [ d.date, d.id ] }, { include_blank: true } %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= form.label :end_date_id %>
+        <%= form.select :end_date_id, Day.all.collect {|d| [ d.date, d.id ] }, value: Date.today %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= form.label :annotation %>
+        <%= form.text_area :annotation %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+  
+<% end %>
