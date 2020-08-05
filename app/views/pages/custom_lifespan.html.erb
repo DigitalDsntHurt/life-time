@@ -6,12 +6,12 @@
     <tr>
       <% week_group.each{|week|%>
         <% if week.nil? %>
-          <td></td>
+          <td id="dead" data-toggle="tooltip" data-placement="top" title="you're dead"></td>
         <% else %>
           <% if Date.today >= week[0] and Date.today <= week[1] %>
-            <td id="this-week"><%=  %></td>
+            <td id="this-week" id="this-week" data-toggle="tooltip" data-placement="top" title="Today is <%= Date.today.strftime("%b %d, %Y") %>, part of this week between <%= week[0].strftime("%b %d") %> and <%= week[1].strftime("%b %d, %Y") %>"></td>
           <% else %>
-            <td><%=  %></td>
+            <td data-toggle="tooltip" data-placement="top" title="Week of <%= week[0].strftime("%b %d") %> to <%= week[1].strftime("%b %d %Y") %>"></td>
           <% end -%>  
         <% end %>
       <% } %>
