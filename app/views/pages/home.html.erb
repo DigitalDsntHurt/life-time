@@ -1,6 +1,3 @@
 <h1 class="title">A Life</h1>
-<p class="title">an average life is 72.6 years long</p>
-<p class="title">i was born <%= @bday %> and might die some time around <%= @dday%> </p>
-
-<p class="title">add an annotation</p>
+<p class="title">i was born <%= @bday %>, an average life is 72.6 years long, so i might die some time around <%= @dday%> </p>
 <%= render partial: 'pages/life_table', locals: {bday: @bday, dday: @dday} %>

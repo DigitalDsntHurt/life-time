@@ -1,0 +1,37 @@
+@import "~bootstrap/scss/bootstrap";
+/*@import 'bootstrap/scss/tooltip';*/
+
+body {
+	padding: 4vh 2vw;
+}
+
+
+/* LIFE GRID TABLE */
+
+.life-table{
+	border-spacing: 0.1em;
+    border-collapse: separate;
+	margin: auto;
+}
+
+.life-table td{
+	border: 0.1em solid rgba(0, 0, 0, 0.3);
+	padding: 0.2em 0.8em;
+}
+.life-table td#this-week{
+	background-color: orange;
+}
+.life-table td#dead{
+	background-color: rgba(0, 0, 0, 0.3);
+}
+.life-table td:hover{
+	background-color: green;
+}
+
+.week-tooltip{
+	display:none;
+}
+
+.week-tooltip:hover{
+	display:block;
+}
